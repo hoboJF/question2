@@ -13,7 +13,7 @@ impl Rectangle {
     }
 
     fn perimeter(&self) -> f64 {
-        2.0*self.width + 2.0*self.height
+        2.0*(self.width + self.height)
     }
 
     fn is_square(&self) -> bool {
@@ -25,6 +25,22 @@ impl Rectangle {
     }
 }
 
+struct Circle{
+    radius : f64
+}
+
+impl Circle{
+    fn new(radius: f64) -> Circle{
+        Circle{radius}
+    }
+    fn area(&self) -> f64{
+        3.14*self.radius*self.radius
+    }
+    fn circumfrence(&self) -> f64{
+        2.0*3.14*self.radius
+    }
+}
+
 fn main() {
     let rect = Rectangle::new(10.0, 5.0);
     println!("Area: {}", rect.area());
@@ -33,4 +49,8 @@ fn main() {
 
     assert!(Rectangle::new(5.0, 5.0).is_square());
     assert!(!Rectangle::new(5.0, 6.0).is_square());
+
+    let circ = Circle::new(4.0);
+    println!("Area: {}", circ.area());
+    println!("Circumfrence: {}", circ.circumfrence());
 }
